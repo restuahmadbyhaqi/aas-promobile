@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/homePage.dart';
 import 'package:myapp/loginPage.dart';
 import 'package:myapp/registrationPage.dart';
+import 'package:myapp/wellcoScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
       ),
         debugShowCheckedModeBanner: false,
-        home: Loginpage());
+        home: WelcomeScreen());
   }
 }
 
