@@ -25,26 +25,17 @@ class WelcomeScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height / 1.6,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 74, 80, 239),
+                     color: Color(0xFFCCFF90), 
                     borderRadius: BorderRadius.only(bottomRight: Radius.circular(70)),
                   ),
                   child: Center(
-                    child: Image.asset("alquran.png", scale: 0.8),
+                    child: Image.asset("islamHub_logo.png", scale: 0.8),
                   ),
                 ),
                 Align(
               alignment: Alignment.topCenter,
               child: Padding(
                 padding: const EdgeInsets.only(top: 40),
-                child: Text(
-                  "IslamHub",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                    wordSpacing: 2,
-                    color: Colors.white,
-                  ),
-                ),
               ),
             ),
               ],
@@ -56,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height /2.666,
                 padding: EdgeInsets.only(top: 40, bottom: 30),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 74, 80, 239),
+                  color: Color(0xFFCCFF90), 
                 ),
               ),
             ),
@@ -96,7 +87,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 40),
                       Material(
-                        color: Color.fromARGB(255, 74, 80, 239),
+                        color : Colors.green,
                         borderRadius: BorderRadius.circular(10),
                         child: InkWell(
                           onTap: () {
