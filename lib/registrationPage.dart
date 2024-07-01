@@ -12,78 +12,158 @@ class RegisPage extends StatelessWidget {
     final password1Controller = TextEditingController();
     final password2Controller = TextEditingController();
 
-    final formkey = GlobalKey<FormState>();
-
-    
+    final formKey = GlobalKey<FormState>();
 
     return Scaffold(
-        appBar: AppBar(
-          title: Align(
-              alignment: Alignment.centerRight, child: Text('Registrasi')),
-          leading: Icon(Icons.home),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Form(
-              key: formkey,
-              autovalidateMode: AutovalidateMode.always,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    child: Image.asset("assets/images/gambar-logo.png"),
-                    width: 200,
-                    height: 200,
-                  ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    controller: usernameController,
-                      decoration: InputDecoration(
-                          labelText: 'username', border: OutlineInputBorder())),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    controller: emailController,
-                      decoration: InputDecoration(
-                          labelText: 'email', border: OutlineInputBorder())),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    controller: password1Controller,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          labelText: 'password', border: OutlineInputBorder())),
-                  SizedBox(height: 10),
-                  TextFormField(
-                      obscureText: true,
-                      controller: password2Controller,
-                      decoration: InputDecoration(
-                          labelText: 'ulangi password',
-                          border: OutlineInputBorder())),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Loginpage()));
-                          },
-                          child: Text('Kembali')),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Loginpage()));
-                          },
-                          child: Text('Simpan')),
-                    ],
-                  )
-                ],
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          width: 400,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 10,
+                spreadRadius: 5,
               ),
-            ),
+            ],
           ),
-        ));
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text(
+                'Create a new account',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              SizedBox(height: 20),
+              Form(
+                key: formKey,
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      controller: usernameController,
+                      decoration: InputDecoration(
+                        hintText: 'Username',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Username tidak boleh kosong';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        hintText: 'Email',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email tidak boleh kosong';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: password1Controller,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: 'Password',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Password tidak boleh kosong';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: password2Controller,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: 'Ulangi Password',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Konfirmasi password tidak boleh kosong';
+                        }
+                        if (value != password1Controller.text) {
+                          return 'Password tidak sama';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Loginpage()),
+                          );
+                        }
+                      },
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        ),
+                      
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: Size(double.infinity, 40), // Full width button
+                        backgroundColor: Colors.green,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Loginpage()),
+                        );
+                      },
+                      child: Text(
+                        'Already have an account?',
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

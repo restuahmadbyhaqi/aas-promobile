@@ -35,6 +35,13 @@ class _LoginPageState extends State<Loginpage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              Text(
+                'Login',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               TextFormField(
                 controller: _usernameController,
                 decoration: InputDecoration(
@@ -77,11 +84,11 @@ class _LoginPageState extends State<Loginpage> {
                   }
                 },
                 child: Text(
-                    'Log in',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold
-                     ),
+                  'Log in',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 40), // Full width button
@@ -97,8 +104,8 @@ class _LoginPageState extends State<Loginpage> {
                 child: Text(
                   'Forgotten password?',
                   style: TextStyle(
-                    color: Colors.blue
-                    ),
+                    color: Colors.blue,
+                  ),
                 ),
               ),
               Divider(),
@@ -111,9 +118,9 @@ class _LoginPageState extends State<Loginpage> {
                 },
                 child: Text('Create new account',
                 style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold
-                     ),
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
                 ),
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 40), // Full width button
