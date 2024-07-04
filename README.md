@@ -1,4 +1,4 @@
-# myapp
+# mobile
 
 A new Flutter project.
 
